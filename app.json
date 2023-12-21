@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "tutorial-mosh_hamedani-rn-done_with_it",
-    "slug": "tutorial-mosh_hamedani-rn-done_with_it",
+    "slug": "tutorial-mosh-donewithit",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e189b889-ce1e-4886-a744-3c1d7095ea17"
+      }
+    },
+    "owner": "out-a-time"
   }
 }
