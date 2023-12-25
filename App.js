@@ -1,4 +1,4 @@
-import { StatusBar } from "expo-status-bar";
+// import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,
   Text,
@@ -12,12 +12,19 @@ import {
   ScrollView,
   Button,
   Alert,
+  Platform,
+  StatusBar,
+  Dimensions,
 } from "react-native";
 
 export default function App() {
   const handlePress = () => {
     console.log("Text clicked");
   };
+
+  // Dimensions - screen is the size entire screen, window is the size of application window.
+  // This is differ on Android, but is the same on iOS.
+  console.log(Dimensions.get("screen"));
 
   return (
     <SafeAreaView style={styles.container}>
@@ -105,16 +112,23 @@ export default function App() {
           ></View>
         </TouchableNativeFeedback>
       </ScrollView>
+      <View style={styles.dimensions}></View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 35,
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     flex: 1,
     backgroundColor: "dodgerblue",
     alignItems: "center",
     justifyContent: "center",
+  },
+  dimensions: {
+    backgroundColor: "yellow",
+    // width: 150,
+    width: "50%",
+    height: 70,
   },
 });

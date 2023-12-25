@@ -4,5 +4,6 @@ Full course: https://codewithmosh.com/p/the-ultimate-react-native-course
 > [!NOTE]
 > Good explanation how to Debug in React Native simulator and web browser
 
-The app is on the 'main' branch.
-Basics of React Native are on 'basics' branch
+'main' branch - the app
+'basics' branch - basics of React Native are on
+'dimensions' branch - dimensions and screen orientation change are on
