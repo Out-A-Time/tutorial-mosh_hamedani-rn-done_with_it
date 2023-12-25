@@ -4,18 +4,15 @@ import {
   Text,
   View,
   SafeAreaView,
-  Image,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  TouchableHighlight,
-  TouchableNativeFeedback,
-  ScrollView,
-  Button,
-  Alert,
   Platform,
   StatusBar,
   Dimensions,
 } from "react-native";
+import {
+  useDimensions,
+  useDeviceOrientation,
+} from "@react-native-community/hooks";
+import { useWindowDimensions } from "react-native";
 
 export default function App() {
   const handlePress = () => {
@@ -26,92 +23,20 @@ export default function App() {
   // This is differ on Android, but is the same on iOS.
   console.log(Dimensions.get("screen"));
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar style="dark" />
-      <ScrollView>
-        <Button
-          title="Click Me - alert 1"
-          color="orange"
-          onPress={() => {
-            alert("Button Alert");
-            console.log("button clicked");
-          }}
-        />
-        <Button
-          title="Click Me - alert 2"
-          color="orange"
-          onPress={() => {
-            Alert.alert("Alert title here", "Alert message here", [
-              {
-                text: "Yes",
-                onPress: () => {
-                  console.log("You pressed yes");
-                },
-              },
-              {
-                text: "No",
-                onPress: () => {
-                  console.log("You pressed no");
-                },
-              },
-            ]);
-          }}
-        />
-        <Button
-          title="Click Me - prompt"
-          color="green"
-          onPress={() => {
-            Alert.prompt("Prompt title here", "Prompt message here", (text) => {
-              console.log(text);
-              console.log("this prompt works only for iOS at the moment");
-            });
-          }}
-        />
-        <Text numberOfLines={1} onPress={handlePress}>
-          TouchableWithoutFeedback
-        </Text>
-        {/* <Image source={require("./assets/icon.png")} /> */}
-        <TouchableWithoutFeedback onPress={() => console.log("Image tapped")}>
-          <Image
-            width={300}
-            height={200}
-            blurRadius={10}
-            fadeDuration={1000}
-            resizeMode="contain"
-            source={{ uri: "https://picsum.photos/200/300" }}
-          />
-        </TouchableWithoutFeedback>
+  // console.log(useDimensions());
+  const orientation = useDeviceOrientation();
+  console.log(orientation);
 
-        <Text numberOfLines={1}>Touchable Opacity</Text>
-        <TouchableOpacity onPress={() => console.log("Image tapped")}>
-          <Image
-            width={300}
-            height={200}
-            blurRadius={10}
-            fadeDuration={1000}
-            resizeMode="contain"
-            source={{ uri: "https://picsum.photos/200/300" }}
-          />
-        </TouchableOpacity>
-        <Text numberOfLines={1}>TouchableHeighlight</Text>
-        <TouchableHighlight onPress={() => console.log("Image tapped")}>
-          <Image
-            width={300}
-            height={200}
-            blurRadius={10}
-            fadeDuration={1000}
-            resizeMode="contain"
-            source={{ uri: "https://picsum.photos/200/300" }}
-          />
-        </TouchableHighlight>
-        <Text numberOfLines={1}>TouchableNativFeedback (only Android)</Text>
-        <TouchableNativeFeedback onPress={() => console.log("Image tapped")}>
-          <View
-            style={{ width: 200, height: 70, backgroundColor: "pink" }}
-          ></View>
-        </TouchableNativeFeedback>
-      </ScrollView>
+  // Destructuring - but 'landscape' is undefined :/ could by old npm package
+  // const { landscape } = useDeviceOrientation();
+  // console.log(landscape);
+
+  console.log(useWindowDimensions());
+
+  return (
+    <SafeAreaView style={styles.containers}>
+      <StatusBar style="dark" />
+
       <View style={styles.dimensions}></View>
     </SafeAreaView>
   );
@@ -120,15 +45,14 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-    flex: 1,
-    backgroundColor: "dodgerblue",
-    alignItems: "center",
-    justifyContent: "center",
+    // flex: 1,
+    // backgroundColor: "dodgerblue",
   },
   dimensions: {
     backgroundColor: "yellow",
     // width: 150,
-    width: "50%",
-    height: 70,
+    width: "100%",
+    // height: "50%",
+    // height: landscape ? "100" : "30%",
   },
 });
