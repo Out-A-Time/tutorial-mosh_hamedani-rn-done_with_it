@@ -1,58 +1,58 @@
 // import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  Platform,
-  StatusBar,
-  Dimensions,
-} from "react-native";
-import {
-  useDimensions,
-  useDeviceOrientation,
-} from "@react-native-community/hooks";
-import { useWindowDimensions } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 export default function App() {
-  const handlePress = () => {
-    console.log("Text clicked");
-  };
-
-  // Dimensions - screen is the size entire screen, window is the size of application window.
-  // This is differ on Android, but is the same on iOS.
-  console.log(Dimensions.get("screen"));
-
-  // console.log(useDimensions());
-  const orientation = useDeviceOrientation();
-  console.log(orientation);
-
-  // Destructuring - but 'landscape' is undefined :/ could by old npm package
-  // const { landscape } = useDeviceOrientation();
-  // console.log(landscape);
-
-  console.log(useWindowDimensions());
-
   return (
-    <SafeAreaView style={styles.containers}>
-      <StatusBar style="dark" />
-
-      <View style={styles.dimensions}></View>
-    </SafeAreaView>
+    <View style={styles.dimensions}>
+      <View style={styles.flexbox_1} />
+      <View style={styles.flexbox_2} />
+      <View style={styles.flexbox_3} />
+      <View style={styles.flexbox_4}>
+        <View style={styles.align1} />
+        <View style={styles.align2} />
+        <View style={styles.align3} />
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-    // flex: 1,
-    // backgroundColor: "dodgerblue",
-  },
   dimensions: {
     backgroundColor: "yellow",
-    // width: 150,
-    width: "100%",
-    // height: "50%",
-    // height: landscape ? "100" : "30%",
+    flex: 1,
+  },
+  flexbox_1: {
+    backgroundColor: "green",
+    flex: 1,
+  },
+  flexbox_2: {
+    backgroundColor: "red",
+    flex: 1,
+  },
+  flexbox_3: {
+    backgroundColor: "blue",
+    flex: 1,
+  },
+  flexbox_4: {
+    backgroundColor: "pink",
+    flex: 1,
+    flexDirection: "row-reverse",
+    justifyContent: "center",
+    alignItems: "baseline",
+  },
+  align1: {
+    backgroundColor: "red",
+    width: 50,
+    height: 50,
+  },
+  align2: {
+    backgroundColor: "yellow",
+    width: 50,
+    height: 100,
+  },
+  align3: {
+    backgroundColor: "orange",
+    width: 50,
+    height: 150,
   },
 });
