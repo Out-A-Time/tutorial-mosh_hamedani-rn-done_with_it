@@ -10,3 +10,5 @@ Full course: https://codewithmosh.com/p/the-ultimate-react-native-course
 'basics' branch - basics of React Native are on
 
 'dimensions' branch - dimensions and screen orientation change are on
+
+'flexbox' branch - basics of flexbox
