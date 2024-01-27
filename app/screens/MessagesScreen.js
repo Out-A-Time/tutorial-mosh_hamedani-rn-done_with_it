@@ -1,7 +1,8 @@
-import { FlatList, StyleSheet, Platform, StatusBar } from "react-native";
+import { FlatList, StyleSheet, Platform, StatusBar, View } from "react-native";
 import React from "react";
 import ListItem from "../components/ListItem";
 import Screen from "../components/Screen";
+import ListItemSeparator from "../components/ListItemSeparator";
 // import Constants from "expo-constants";
 
 // console.log(Constants);
@@ -32,8 +33,10 @@ const MessagesScreen = () => {
             title={item.title}
             subTitle={item.description}
             image={item.image}
+            onPress={(event) => console.log("Message selected", item)}
           />
         )}
+        ItemSeparatorComponent={<ListItemSeparator />}
       />
     </Screen>
   );
