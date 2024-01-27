@@ -14,7 +14,7 @@ import Card from "./app/components/Card";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 
 export default function App() {
-  return <ListingDetailsScreen />;
+  // return <ListingDetailsScreen />;
   // return (
   //   <View style={{ backgroundColor: "#f8f4f4", padding: 20, paddingTop: 100 }}>
   //     <Card
@@ -25,7 +25,7 @@ export default function App() {
   //   </View>
   // );
   // return <WelcomeScreen />;
-  // return <ViewImageScreen />;
+  return <ViewImageScreen />;
   // return (
   //   <View>
   //     <AppButton title="Login" onPress={() => console.log("Tapped")} />
