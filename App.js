@@ -12,6 +12,8 @@ import ViewImageScreen from "./app/screens/ViewImageScreen";
 import AppButton from "./app/components/AppButton";
 import Card from "./app/components/Card";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
+import ListItem from "./app/components/ListItem";
+import MessagesScreen from "./app/screens/MessagesScreen";
 
 export default function App() {
   // return <ListingDetailsScreen />;
@@ -25,7 +27,9 @@ export default function App() {
   //   </View>
   // );
   // return <WelcomeScreen />;
-  return <ViewImageScreen />;
+  // return <ViewImageScreen />;
+  return <MessagesScreen />;
+
   // return (
   //   <View>
   //     <AppButton title="Login" onPress={() => console.log("Tapped")} />
