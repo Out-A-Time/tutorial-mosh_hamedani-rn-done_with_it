@@ -7,6 +7,7 @@ import {
   StatusBar,
   Dimensions,
 } from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import AppButton from "./app/components/AppButton";
@@ -28,7 +29,11 @@ export default function App() {
   // );
   // return <WelcomeScreen />;
   // return <ViewImageScreen />;
-  return <MessagesScreen />;
+  return (
+    <GestureHandlerRootView>
+      <MessagesScreen />
+    </GestureHandlerRootView>
+  );
 
   // return (
   //   <View>

@@ -3,6 +3,7 @@ import React from "react";
 import ListItem from "../components/ListItem";
 import Screen from "../components/Screen";
 import ListItemSeparator from "../components/ListItemSeparator";
+import ListItemDeleteAction from "../components/ListItemDeleteAction";
 // import Constants from "expo-constants";
 
 // console.log(Constants);
@@ -34,6 +35,7 @@ const MessagesScreen = () => {
             subTitle={item.description}
             image={item.image}
             onPress={(event) => console.log("Message selected", item)}
+            renderRightActions={ListItemDeleteAction}
           />
         )}
         ItemSeparatorComponent={<ListItemSeparator />}
